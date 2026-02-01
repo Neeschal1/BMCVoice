@@ -1,6 +1,8 @@
 from django.urls import path
-from . import views
+from .views import *
 
 urlpatterns = [
-    path('', views.details, name='details')
+    path('', details, name='details'),
+    path('create/', UserDetailSerializerCreateView.as_view(), name='UserDetailSerializerCreateView'),
+    path('list/', UserDetailSerializerListView.as_view(), name='UserDetailSerializerListView'),
 ]
