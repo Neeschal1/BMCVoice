@@ -1,10 +1,16 @@
-import { View, Text, ScrollView, Image } from "react-native";
-import React from "react";
+import React, { useState } from "react";
+import { View, Text, ScrollView, Image, TouchableOpacity, Modal, Dimensions } from "react-native";
 import { useLocalSearchParams } from "expo-router";
+import ImageViewer from "react-native-image-zoom-viewer";
+
+const { width } = Dimensions.get("window");
 
 const Details = () => {
   const { item } = useLocalSearchParams();
   const data = item ? JSON.parse(item) : null;
+
+  const [modalVisible, setModalVisible] = useState(false);
+  const [imageIndex, setImageIndex] = useState(0);
 
   if (!data) {
     return (
@@ -14,86 +20,72 @@ const Details = () => {
     );
   }
 
+  // Prepare images array
+  const images = [data.Image_1, data.Image_2, data.Image_3, data.Image_4, data.Image_5]
+    .filter(Boolean)
+    .map((uri) => ({ url: uri }));
+
+  const openModal = (index) => {
+    setImageIndex(index);
+    setModalVisible(true);
+  };
+
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={{ padding: 20 }}>
-      <View style={{ gap: 10 }}>
-        <View
-          style={{
-            backgroundColor: "#D8D4FF",
-            paddingVertical: 10,
-            borderRadius: 20,
-            alignItems: "center",
-          }}
-        >
-          <Text style={{ fontSize: 26, fontWeight: "700", marginBottom: 5 }}>
-            {data.Name}
-          </Text>
+    <View style={{ flex: 1 }}>
+      <ScrollView showsVerticalScrollIndicator={false} style={{ padding: 20 }}>
+        {/* Header */}
+        <View style={{ gap: 10 }}>
+          <View
+            style={{
+              backgroundColor: "#D8D4FF",
+              paddingVertical: 10,
+              borderRadius: 20,
+              alignItems: "center",
+            }}
+          >
+            <Text style={{ fontSize: 26, fontWeight: "700", marginBottom: 5 }}>{data.Name}</Text>
+            <Text>{data.Address}</Text>
+            <Text style={{ marginBottom: 15 }}>{data.Phone_Number}</Text>
+          </View>
 
-          <Text>{data.Address}</Text>
-          <Text style={{ marginBottom: 15 }}>{data.Phone_Number}</Text>
-        </View>
+          {/* Content */}
+          <View
+            style={{
+              backgroundColor: "white",
+              paddingVertical: 10,
+              borderRadius: 20,
+              alignItems: "center",
+              paddingHorizontal: 15,
+            }}
+          >
+            <Text style={{ fontSize: 16, lineHeight: 24, marginVertical: 10 }}>{data.Content}</Text>
+          </View>
 
-        <View
-          style={{
-            backgroundColor: "white",
-            paddingVertical: 10,
-            borderRadius: 20,
-            alignItems: "center",
-            paddingHorizontal: 15,
-          }}
-        >
-          <Text style={{ fontSize: 16, lineHeight: 24, marginTop: 10, marginBottom: 10 }}>{data.Content}</Text>
-        </View>
-
-        <View style={{gap: 10}}>
-          <View>
-            {data.Image_1 ? (
-              <Image
-                style={{ height: 200, width: "100%", borderRadius: 12 }}
-                source={{ uri: data.Image_1 }}
-                resizeMode="cover"
-              />
-            ) : null}
-          </View>
-          <View>
-            {data.Image_2 ? (
-              <Image
-                style={{ height: 200, width: "100%", borderRadius: 12 }}
-                source={{ uri: data.Image_2 }}
-                resizeMode="cover"
-              />
-            ) : null}
-          </View>
-          <View>
-            {data.Image_3 ? (
-              <Image
-                style={{ height: 200, width: "100%", borderRadius: 12 }}
-                source={{ uri: data.Image_3 }}
-                resizeMode="cover"
-              />
-            ) : null}
-          </View>
-          <View>
-            {data.Image_4 ? (
-              <Image
-                style={{ height: 200, width: "100%", borderRadius: 12 }}
-                source={{ uri: data.Image_4 }}
-                resizeMode="cover"
-              />
-            ) : null}
-          </View>
-          <View>
-            {data.Image_5 ? (
-              <Image
-                style={{ height: 200, width: "100%", borderRadius: 12 }}
-                source={{ uri: data.Image_5 }}
-                resizeMode="cover"
-              />
-            ) : null}
+          {/* Images */}
+          <View style={{ gap: 10, marginTop: 10 }}>
+            {images.map((img, idx) => (
+              <TouchableOpacity key={idx} onPress={() => openModal(idx)}>
+                <Image
+                  source={{ uri: img.url }}
+                  style={{ height: 200, width: "100%", borderRadius: 12 }}
+                  resizeMode="cover"
+                />
+              </TouchableOpacity>
+            ))}
           </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+
+      {/* Zoomable Image Modal */}
+      <Modal visible={modalVisible} transparent={true} onRequestClose={() => setModalVisible(false)}>
+        <ImageViewer
+          imageUrls={images}
+          index={imageIndex}
+          enableSwipeDown={true}
+          onSwipeDown={() => setModalVisible(false)}
+        />
+      </Modal>
+    </View>
   );
 };
 
