@@ -16,6 +16,7 @@ INSTALLED_APPS = [
     
     # installed packages
     'rest_framework',
+    "corsheaders",
     
     # installed apps
     'apps.accounts',
@@ -26,10 +27,12 @@ INSTALLED_APPS = [
 # Middlewares
 MIDDLEWARE = [
     # manually added middlewares
+    "corsheaders.middleware.CorsMiddleware",
+    'django.middleware.common.CommonMiddleware',
+    
     # default middlewares
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -52,6 +55,18 @@ TEMPLATES = [
         },
     },
 ]
+
+
+# Cors stuffs
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_METHODS = (
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+)
 
 
 # Passwords for authorization

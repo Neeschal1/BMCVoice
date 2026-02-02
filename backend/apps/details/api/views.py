@@ -20,7 +20,7 @@ class UserDetailSerializerCreateView(generics.CreateAPIView):
 
 # View for listing all of the details
 class UserDetailSerializerListView(generics.ListAPIView):
-    permission_classes = [IsAdminUser]
+    permission_classes = [AllowAny]
     queryset = UserDetail.objects.all()
     serializer_class = UserDetailSerializer
     
