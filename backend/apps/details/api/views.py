@@ -24,3 +24,10 @@ class UserDetailSerializerListView(generics.ListAPIView):
     queryset = UserDetail.objects.all()
     serializer_class = UserDetailSerializer
     
+# View for deleting a particular user details
+class UserDetailSerializerDeleteView(APIView):
+    def delete(self, request, pk):
+        user = UserDetail.objects.get(pk=pk)
+        user.delete()
+        return Response({"Message":f"{user.Name}'s detail deleted successfully!"})
+    
