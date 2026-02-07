@@ -19,7 +19,6 @@ INSTALLED_APPS = [
     "corsheaders",
     
     # installed apps
-    'apps.accounts',
     'apps.details'
 ]
 
