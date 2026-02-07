@@ -17,6 +17,8 @@ INSTALLED_APPS = [
     # installed packages
     'rest_framework',
     "corsheaders",
+    'drf_yasg',
+    # 'rest_framework_swagger',
     
     # installed apps
     'apps.details'
