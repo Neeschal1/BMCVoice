@@ -1,14 +1,14 @@
+import { useRouter } from "expo-router";
+import React, { useEffect, useState } from "react";
 import {
+  Image,
+  RefreshControl,
   ScrollView,
   Text,
   TouchableOpacity,
   View,
-  Image,
-  RefreshControl,
 } from "react-native";
-import React, { useEffect, useState } from "react";
-import fetchdetails from "./api";
-import { useRouter } from "expo-router";
+import fetchdetails from "./readoperation";
 
 const Home = () => {
   const router = useRouter();
@@ -16,9 +16,6 @@ const Home = () => {
   const [data, setData] = useState([]);
   const [readItems, setReadItems] = useState({});
   const [refreshing, setRefreshing] = useState(false);
-
-  const img =
-    "https://scontent.fbwa1-1.fna.fbcdn.net/v/t39.30808-6/600273998_25753692107569516_949076227462107236_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=T7K2-qx0d9oQ7kNvwE8LtT6&_nc_oc=AdlcE0ROTStbC_FJ3hWJF3KmMpK0Kl8iX-ce4mSpjR1gubJ-781SZekdambf9FoJ53C_0M7zNTMhpbzgNKj6cpXD&_nc_zt=23&_nc_ht=scontent.fbwa1-1.fna&_nc_gid=xdrdQLCDfkUuMvktryhJ8g&oh=00_AftSL07cLu8y_XWR_REViGJzmZ1aH-3Ngl26xrSgzjvXpw&oe=698689CA";
 
   // Fetch data
   const fetchData = async () => {
@@ -54,7 +51,7 @@ const Home = () => {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: "#F6F6F6" }}>
+    <View style={{ flex: 1, backgroundColor: "#F6F6F6", width: "100%" }}>
       {/* Top Section */}
       <View
         style={{
@@ -66,7 +63,7 @@ const Home = () => {
         }}
       >
         <Image
-          source={{ uri: img }}
+          source={require("../assets/arunchhetri.jpg")}
           style={{
             width: 60,
             height: 60,
@@ -89,8 +86,8 @@ const Home = () => {
           <RefreshControl
             refreshing={refreshing}
             onRefresh={onRefresh}
-            colors={["#6C63FF"]}   // Android
-            tintColor="#6C63FF"    // iOS
+            colors={["#6C63FF"]} // Android
+            tintColor="#6C63FF" // iOS
           />
         }
       >

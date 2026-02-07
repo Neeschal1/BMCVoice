@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const api = "http://192.168.1.66:8000/";
+const api = "https://bmc-s0uj.onrender.com/";
 
 // GET
 const fetchdetails = async () => {
