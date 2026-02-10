@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { AlertCircle } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
+import handleSubmit from "../api/create"
 
 
-const Recheck = ({}) => {
+const Recheck = () => {
     const location = useLocation()
     const navigate = useNavigate()
 
@@ -11,7 +12,8 @@ const Recheck = ({}) => {
 
     const {name, address, phone, details} = location.state || {}
 
-    const handleSubmit = () => {
+    const handleSubmission = () => {
+        handleSubmit(name, address, phone, details, setIsSubmitting)
         navigate("/person/details/recheck/success/")
     }
 
@@ -82,7 +84,7 @@ const Recheck = ({}) => {
         {/* Button */}
         <div className="px-6 pb-6">
           <button
-            onClick={handleSubmit}
+            onClick={handleSubmission}
             disabled={isSubmitting}
             className={`w-full rounded-xl bg-amber-500 py-3 font-semibold text-white transition hover:bg-amber-600 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2`}
           >
