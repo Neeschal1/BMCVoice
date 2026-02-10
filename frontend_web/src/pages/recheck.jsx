@@ -12,7 +12,7 @@ const Recheck = ({}) => {
     const {name, address, phone, details} = location.state || {}
 
     const handleSubmit = () => {
-
+        navigate("/person/details/recheck/success/")
     }
 
   return (
