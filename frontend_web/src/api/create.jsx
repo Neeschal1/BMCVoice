@@ -1,5 +1,5 @@
 import axios from "axios";
-const url = import.meta.env.api_url;
+const url = import.meta.env.VITE_API_URL;
 
 const handleSubmit = async (name, address, phone, details, setIsSubmitting) => {
     setIsSubmitting(true)

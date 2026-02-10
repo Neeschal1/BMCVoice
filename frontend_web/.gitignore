@@ -26,3 +26,4 @@ dist-ssr
 url.jsx
 
 .env
+node_modules

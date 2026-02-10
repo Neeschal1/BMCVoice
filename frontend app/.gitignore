@@ -43,3 +43,5 @@ app-example
 /android
 
 api.jsx
+node_modules
+.env
