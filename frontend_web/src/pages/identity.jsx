@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AlertCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import Details from "./details";
 
 const Identity = () => {
   const [name, setName] = useState("");
@@ -8,31 +9,30 @@ const Identity = () => {
   const [phone, setPhone] = useState("");
   const [errors, setErrors] = useState({});
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleNextStep = () => {
     const newErrors = {};
     if (!name) newErrors.name = "Full name is required";
     if (!address) newErrors.address = "Address is required";
     if (!phone) newErrors.phone = "Phone number is required";
-
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
       console.log({ name, address, phone });
     }
 
-    if (name && address && phone){
-        navigate("/person/details")
+    if (name && address && phone) {
+      navigate("/person/details", {
+        state: { name, address, phone },
+      });
     }
-
   };
 
   return (
     <div className="flex min-h-screen w-full items-center justify-center bg-slate-100">
       {/* Phone frame */}
       <div className="w-full max-w-sm rounded-3xl bg-white shadow-xl animate-fade-in">
-
         {/* Header */}
         <div className="flex items-center gap-4 border-b px-6 py-5">
           <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-500">

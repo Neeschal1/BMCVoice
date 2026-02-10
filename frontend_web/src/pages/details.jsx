@@ -1,30 +1,32 @@
 import React, { useState } from "react";
 import { AlertCircle } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import axios from 'axios'
+import { useNavigate, useLocation  } from "react-router-dom";
 
 const Details = () => {
-  const [name, setName] = useState("");
-  const [address, setAddress] = useState("");
-  const [phone, setPhone] = useState("");
+  const [details, setDetails] = useState("")
   const [errors, setErrors] = useState({});
+  const location = useLocation()
+  const { name, address, phone } = location.state || {};
 
   const navigate = useNavigate();
 
-  const handleNextStep = () => {
+  const handleNextStep = async () => {
     const newErrors = {};
-    if (!name) newErrors.name = "Full name is required";
-    if (!address) newErrors.address = "Address is required";
-    if (!phone) newErrors.phone = "Phone number is required";
+    if (!details) newErrors.name = "Details are required";
 
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      console.log({ name, address, phone });
+      console.log({ details });
     }
 
-    // if (name && address && phone) {
-    //   navigate("/person/details");
-    // }
+    if (details) {
+      console.log(name, address, phone)
+      navigate("/person/details/recheck/", {
+        state: {name, address, phone, details}
+    });
+    }
   };
 
   return (
@@ -58,12 +60,12 @@ const Details = () => {
             <textarea
               type="text"
               placeholder="Enter your complete details"
-              value={name}
+              value={details}
               onChange={(e) => {
-                setName(e.target.value);
+                setDetails(e.target.value);
                 if (errors.name) setErrors({ ...errors, name: null });
               }}
-              className={`w-full rounded-lg border px-4 py-3 text-black text-sm 
+              className={`w-full h-40 rounded-lg border px-2 py-2 text-black text-sm 
     focus:outline-none focus:ring-2 resize-none
                 ${
                   errors.name
@@ -76,18 +78,6 @@ const Details = () => {
                 <AlertCircle size={14} /> {errors.name}
               </p>
             )}
-          </div>
-
-          {/* Images */}
-          <div className="mb-4">
-            <label className="mb-1 block text-sm font-medium text-slate-700">
-              Attach any images (completely optional)
-            </label>
-            <input type="file" className="py-6 rounded w-3/12 bg-gray-400"/>
-            <input type="file" className="py-6 ml-10 rounded w-3/12 bg-gray-400"/>
-            <input type="file" className="py-6 ml-10 rounded w-3/12 bg-gray-400"/>
-            <input type="file" className="py-6 mt-5 rounded w-3/12 bg-gray-400"/>
-            <input type="file" className="py-6 ml-10 mt-5 rounded w-3/12 bg-gray-400"/>
           </div>
         </div>
 
