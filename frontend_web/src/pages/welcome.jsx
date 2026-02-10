@@ -45,8 +45,8 @@ const Welcome = () => {
         <div className="px-6 pb-6">
           <button
             onClick={handleContinue}
-            className="w-full rounded-xl bg-amber-500 py-3 font-semibold text-white transition
-              hover:bg-amber-600 disabled:cursor-not-allowed disabled:bg-amber-300"
+            className="w-full rounded-xl bg-blue-500 py-3 font-semibold text-white transition
+              hover:bg-blue-600 disabled:cursor-not-allowed disabled:bg-blue-300"
           >
             Continue
           </button>

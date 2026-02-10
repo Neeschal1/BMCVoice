@@ -86,7 +86,7 @@ const Recheck = () => {
           <button
             onClick={handleSubmission}
             disabled={isSubmitting}
-            className={`w-full rounded-xl bg-amber-500 py-3 font-semibold text-white transition hover:bg-amber-600 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2`}
+            className={`w-full rounded-xl bg-blue-500 py-3 font-semibold text-white transition hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2`}
           >
             {isSubmitting ? (
               <>

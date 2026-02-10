@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AlertCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import Details from "./details";
+import RandomNames from "../constants/randomname";
 
 const Identity = () => {
   const [name, setName] = useState("");
@@ -9,7 +9,14 @@ const Identity = () => {
   const [phone, setPhone] = useState("");
   const [errors, setErrors] = useState({});
 
+  
+
   const navigate = useNavigate();
+
+  const AnonNames = () => {
+    const users_name = RandomNames[Math.floor(Math.random() * RandomNames.length)];
+    return users_name;
+  }
 
   const handleNextStep = () => {
     const newErrors = {};
@@ -27,6 +34,15 @@ const Identity = () => {
         state: { name, address, phone },
       });
     }
+  };
+
+  const handleAnonymous = () => {
+    const name = AnonNames()
+    const address = "Anonymous User";
+    const phone = "Anonymous User";
+    navigate("/person/details", {
+        state: { name, address, phone },
+      });
   };
 
   return (
@@ -135,12 +151,19 @@ const Identity = () => {
         </div>
 
         {/* Button */}
-        <div className="px-6 pb-6">
+        <div className="px-6 pb-6 flex flex-col items-center gap-2">
           <button
             onClick={handleNextStep}
-            className="w-full rounded-xl bg-amber-500 py-3 font-semibold text-white transition hover:bg-amber-600"
+            className="w-full rounded-xl bg-blue-500 py-3 font-semibold text-white transition hover:bg-blue-600"
           >
             Next Step
+          </button>
+          <h4 className="text-black">OR</h4>
+          <button
+            onClick={handleAnonymous}
+            className="w-full rounded-xl bg-black/70 py-3 font-semibold text-white transition hover:bg-black"
+          >
+            Go Anonymously!
           </button>
         </div>
       </div>

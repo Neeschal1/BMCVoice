@@ -85,7 +85,7 @@ const Details = () => {
         <div className="px-6 pb-6">
           <button
             onClick={handleNextStep}
-            className="w-full rounded-xl bg-amber-500 py-3 font-semibold text-white transition hover:bg-amber-600"
+            className="w-full rounded-xl bg-blue-500 py-3 font-semibold text-white transition hover:bg-blue-600"
           >
             Next Step
           </button>
