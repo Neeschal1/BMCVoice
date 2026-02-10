@@ -9,7 +9,7 @@ import Success from "./pages/success";
 const App = () => {
   return (
     <Router>
-      <div className="flex w-full h-screen justify-center items-center flex-1">
+      <div className="flex w-full h-screen justify-center items-center flex-1 bg-[#D8D4FF]">
         <Routes>
           <Route path="/" element={<Welcome />}/>
           <Route path="/person" element={<Identity />}/>
