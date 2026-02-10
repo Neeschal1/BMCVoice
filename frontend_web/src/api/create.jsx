@@ -1,5 +1,5 @@
-import url from "../../url";
 import axios from "axios";
+const url = import.meta.env.api_url;
 
 const handleSubmit = async (name, address, phone, details, setIsSubmitting) => {
     setIsSubmitting(true)
