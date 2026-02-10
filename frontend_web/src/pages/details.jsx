@@ -55,7 +55,7 @@ const Details = () => {
             <label className="mb-1 block text-sm font-medium text-slate-700">
               Enter your query/suggestion/complain
             </label>
-            <input
+            <textarea
               type="text"
               placeholder="Enter your complete details"
               value={name}
@@ -63,7 +63,8 @@ const Details = () => {
                 setName(e.target.value);
                 if (errors.name) setErrors({ ...errors, name: null });
               }}
-              className={`w-full flex justfy-start align-start rounded-lg border px-4 py-20 text-black text-sm focus:outline-none focus:ring-2
+              className={`w-full rounded-lg border px-4 py-3 text-black text-sm 
+    focus:outline-none focus:ring-2 resize-none
                 ${
                   errors.name
                     ? "border-red-500 focus:ring-red-200"
