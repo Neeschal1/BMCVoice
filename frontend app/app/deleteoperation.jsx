@@ -1,9 +1,9 @@
 import axios from 'axios'
-import api from "../../url"
+import url from '../api'
 
 const deletedetails = async (id) => {
   try {
-    const rec = await axios.delete(`${api}details/delete/${id}/`);
+    const rec = await axios.delete(`${url}details/delete/${id}/`);
     console.log("Deleted:", rec.status); 
     return true;
   } catch (err) {
