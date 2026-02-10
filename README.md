@@ -37,3 +37,7 @@ This system is built to streamline feedback collection and management for Butwal
 
 # Authors
 <a href="https://www.linkedin.com/in/nischal-pokhrel-6543632b7/">Nischal Pokharel</a> – Developer & Designer
+
+
+# License
+This project is licensed under the MIT License – see the LICENSE file (or, simply <a href="https://github.com/Neeschal1/BMCVoice?tab=MIT-1-ov-file">Click Here</a> to view licence file.) for details.
