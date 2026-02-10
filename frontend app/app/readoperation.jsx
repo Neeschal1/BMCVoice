@@ -1,6 +1,5 @@
 import axios from "axios";
-
-const api = "https://bmc-s0uj.onrender.com/";
+import api from '../../url'
 
 // GET
 const fetchdetails = async () => {

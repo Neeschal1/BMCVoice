@@ -1,4 +1,4 @@
-import url from "./url";
+import url from "../../../url";
 import axios from "axios";
 
 const handleSubmit = async (name, address, phone, details, setIsSubmitting) => {
