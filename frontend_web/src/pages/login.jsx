@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ProtectedRoutes from "../utils/protectedRoutes";
 import { useNavigate } from "react-router-dom";
 
 const hardcodedEmail = import.meta.env.VITE_EMAIL
@@ -14,6 +13,7 @@ const Login = () => {
 
   const handleLogin = () => {
     if (email === hardcodedEmail && password == hardcodedPassword) {
+      console.log(`Email: ${hardcodedEmail}\nPassword: ${hardcodedPassword}`)
       localStorage.setItem("authorized_user", "true")
       navigate("/home")
     } else {
