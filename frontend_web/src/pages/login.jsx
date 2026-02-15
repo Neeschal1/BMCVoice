@@ -77,10 +77,10 @@ const Login = () => {
           {/* Password */}
           <div className="mb-2">
             <label className="mb-1 block text-sm font-medium text-slate-700">
-              Phone Number
+              Password
             </label>
             <input
-              type="tel"
+              type="text"
               placeholder="Enter your Password"
               value={password}
               onChange={(e) => {
