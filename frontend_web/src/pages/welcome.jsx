@@ -14,8 +14,9 @@ const Welcome = () => {
       <div className="w-full max-w-sm rounded-3xl bg-white shadow-xl animate-fade-in">
         
         {/* Header */}
-        <div className="flex items-center gap-4 border-b px-6 py-5">
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-500">
+        <div className="flex items-center gap-4 border-b px-6 py-5 justify-between">
+          <div className="flex flex-row justify-center items-center gap-3">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-500">
             <span className="font-bold text-white">BMC</span>
           </div>
           <div>
@@ -24,6 +25,16 @@ const Welcome = () => {
             </h2>
             <p className="text-xs text-slate-500">Golpark, Butwal</p>
           </div>
+          </div>
+          <div className="">
+          <button
+            onClick={handleContinue}
+            className="w-full rounded-xl bg-gray-500 py-3 font-semibold text-white transition
+              hover:bg-black disabled:cursor-not-allowed disabled:bg-blue-300"
+          >
+            Admin
+          </button>
+        </div>
         </div>
 
         {/* Content */}
