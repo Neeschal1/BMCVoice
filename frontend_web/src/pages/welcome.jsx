@@ -8,6 +8,10 @@ const Welcome = () => {
     navigate("/person")
   }
 
+  const handleAdmin = () => {
+    navigate("/login")
+  }
+
   return (
     <div className="flex min-h-screen w-full items-center justify-center bg-slate-100">
       {/* Phone frame */}
@@ -26,9 +30,9 @@ const Welcome = () => {
             <p className="text-xs text-slate-500">Golpark, Butwal</p>
           </div>
           </div>
-          <div className="">
+          <div>
           <button
-            onClick={handleContinue}
+            onClick={handleAdmin}
             className="w-full rounded-xl bg-gray-500 py-3 font-semibold text-white transition
               hover:bg-black disabled:cursor-not-allowed disabled:bg-blue-300"
           >
