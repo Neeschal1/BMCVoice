@@ -24,7 +24,7 @@ const App = () => {
 
           <Route element={<ProtectedRoutes />}>
             <Route path="/home" element={<Adminhome />} />
-            <Route path="/details" element={<Admindetails />} />
+            <Route path="/home/details" element={<Admindetails />} />
           </Route>
         </Routes>
       </div>
