@@ -1,7 +1,9 @@
 import React from 'react'
 import handleDelete from '../api/delete';
+import { useNavigate } from 'react-router-dom';
 
 const Admindetails = () => {
+  const navigation = useNavigate()
   const storedData = localStorage.getItem("userdetails");
   const userDetails = storedData ? JSON.parse(storedData) : null;
 
@@ -12,7 +14,7 @@ const Admindetails = () => {
       <h1 className='text-black'>{userDetails['Address']}</h1>
       <h1 className='text-black'>{userDetails['Phone_Number']}</h1>
       <p className='text-black'>{userDetails['Content']}</p>
-      <button onClick={()=>{handleDelete(userDetails['id'])}} className='flex bg-red-500 text-white'>Delete this record</button>
+      <button onClick={()=>{handleDelete(userDetails['id'], navigation)}} className='flex bg-red-500 text-white'>Delete this record</button>
     </div>
   )
 }
