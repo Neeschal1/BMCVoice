@@ -33,7 +33,7 @@ const Adminhome = () => {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen w-full items-center justify-center bg-linear-to-br from-slate-50 to-slate-100">
+      <div className="flex min-h-screen w-full items-center justify-center bg-[#F2F1FF] mb-10">
         <div className="flex flex-col items-center gap-4">
           <div className="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin"></div>
           <p className="text-gray-600 font-medium">Loading records...</p>
@@ -43,8 +43,8 @@ const Adminhome = () => {
   }
 
   return (
-    <div className="min-h-screen w-full bg-linear-to-br from-slate-50 to-slate-100 py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+    <div className="h-screen w-full bg-[#F2F1FF] py-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto mb-10">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">

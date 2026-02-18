@@ -19,19 +19,13 @@ const Admindetails = () => {
   }
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-slate-50 to-slate-100 p-4 sm:p-6 lg:p-8 px-5">
+    <div className="h-screen bg-[#F2F1FF] p-4 sm:p-6 lg:p-8 px-5">
       <div className="max-w-4xl mx-auto space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">
             User Details
           </h1>
-          {/* <button
-            onClick={() => navigation(-1)}
-            className="px-4 py-2 text-sm text-gray-600 hover:text-gray-800 transition-colors"
-          >
-            ← Back
-          </button> */}
         </div>
 
         {/* Individual Details Card */}
