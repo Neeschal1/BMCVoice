@@ -68,7 +68,7 @@ const Welcome = () => {
         </div>
         <div className="flex flex-1 items-center justify-center gap-2">
           <h5 className="text-sm leading-relaxed text-slate-600">Designed and Developed with ❤️ by</h5>
-          <a className="text-sm leading-relaxed text-slate-600">Nischal Pokharel</a>
+          <a href="https://www.facebook.com/nischal.pokharel.598234" className="text-sm leading-relaxed text-slate-600">Nischal Pokharel</a>
         </div>
       </div>
     </div>
