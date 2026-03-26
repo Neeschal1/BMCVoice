@@ -15,7 +15,7 @@ const Welcome = () => {
   return (
     <div className="flex min-h-screen w-full items-center justify-center bg-slate-100">
       {/* Phone frame */}
-      <div className="w-full max-w-sm rounded-3xl bg-white shadow-xl animate-fade-in">
+      <div className="w-full max-w-sm rounded-3xl bg-white shadow-xl animate-fade-in pb-5">
         
         {/* Header */}
         <div className="flex items-center gap-4 border-b px-6 py-5 justify-between">
@@ -65,6 +65,10 @@ const Welcome = () => {
           >
             Continue
           </button>
+        </div>
+        <div className="flex flex-1 items-center justify-center gap-2">
+          <h5 className="text-sm leading-relaxed text-slate-600">Designed and Developed with ❤️ by</h5>
+          <a className="text-sm leading-relaxed text-slate-600">Nischal Pokharel</a>
         </div>
       </div>
     </div>
